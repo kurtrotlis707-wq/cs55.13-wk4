@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 // Import utility styles for consistent styling
 import utilStyles from '../pages/styles/utils.module.css';
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedPostsData } from '../posts';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
