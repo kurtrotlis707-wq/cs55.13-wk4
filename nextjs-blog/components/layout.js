@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
+import utilStyles from '../pages/styles/utils.module.css';
 import Link from 'next/link';
 
 const name = 'Your Name';
@@ -26,6 +26,7 @@ export default function Layout({ children, home }) {
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <header className={styles.header}>
+
                 {home ? (
                     <>
                         <Image
@@ -57,6 +58,7 @@ export default function Layout({ children, home }) {
                         </h2>
                     </>
                 )}
+
             </header>
             <main>{children}</main>
             {!home && (
