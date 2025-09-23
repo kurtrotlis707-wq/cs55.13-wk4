@@ -4,10 +4,14 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 // Import utility styles for consistent styling
 import utilStyles from '../pages/styles/utils.module.css';
+// Import data from posts
 import { getSortedPostsData } from '../posts';
+//Abillity to link pages
 import Link from 'next/link';
+//ability to call date component
 import Date from '../components/date';
 
+//display post info
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
@@ -21,6 +25,7 @@ export async function getStaticProps() {
  * A React functional component that renders the main home page
  * This is the default export for the root route ('/') in Next.js
  */
+
 export default function Home() {
   return (
     // Use the Layout component with 'home' prop for home page styling
@@ -42,7 +47,7 @@ export default function Home() {
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section className={`${utilStyles.headingMd} ${utilStyles.background}  ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (

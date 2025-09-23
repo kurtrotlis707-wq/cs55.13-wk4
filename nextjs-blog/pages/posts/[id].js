@@ -1,14 +1,16 @@
+// setup standard page layout
 import Layout from '../../components/layout';
 
-
+//get post data and markers
 import { getAllPostIds, getPostData } from '../../posts';
 // Add this import
+// you can use head
 import Head from 'next/head';
-
+// you will be able to use tyhe date component
 import Date from '../../components/date';
-
+// css for your page
 import utilStyles from '../../styles/utils.module.css';
-
+//display post data
 export default function Post({ postData }) {
     return (
         <Layout>
@@ -17,7 +19,7 @@ export default function Post({ postData }) {
             </Head>
             <article>
                 <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-                <div className={utilStyles.lightText}>
+                <div className={utilStyles.lightText} {utilStyles.background} >
                     <Date dateString={postData.date} />
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
@@ -25,7 +27,7 @@ export default function Post({ postData }) {
         </Layout>
     );
 }
-
+// allows for page routing
 export async function getStaticPaths() {
     const paths = getAllPostIds();
     return
@@ -43,6 +45,7 @@ export async function getStaticPaths() {
             fallback: false,
     }
 }
+//pull data from the sever when needed
 export async function getStaticProps({ params }) {
     // Add the "await" keyword like this:
     const postData = await getPostData(params.id);
