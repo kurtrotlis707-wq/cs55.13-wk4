@@ -19,7 +19,7 @@ export default function Post({ postData }) {
             </Head>
             <article>
                 <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-                <div className={utilStyles.lightText} {utilStyles.background} >
+                <div className={utilStyles.background} >
                     <Date dateString={postData.date} />
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
@@ -42,7 +42,7 @@ export async function getStaticPaths() {
     ];
     {
         paths,
-            fallback: false,
+            fallback.false
     }
 }
 //pull data from the sever when needed
